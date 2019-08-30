@@ -27,16 +27,20 @@ loop:
 // r1 string that was counted
 // r2 length of string
 .global strlen
+
 strlen:
     mov r2, #0              // Clear registers for use
     mov r3, #0
     push {r1}               // Push the original memory address onto the stack
+
 strlen_loop:
     ldrb r3, [r1]           // Load byte from address at r1 into r3
+
     cmp r3, #0              // Compare to terminating null value
     addne r2, r2, #1        // Increment char counter
     addne r1, r1, #1        // Increment string pointer
     bne strlen_loop         // Jump if byte in r3 != 0
+
     pop {r1}                // Restore the original memory address into r1
     bx lr                   // Return from subroutine
 
