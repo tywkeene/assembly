@@ -25,7 +25,7 @@ loop:
 // r3 byte to compare
 // Return values:
 // r1 string that was counted
-// r3 length of string
+// r2 length of string
 .global strlen
 strlen:
     mov r2, #0              // Clear registers for use
